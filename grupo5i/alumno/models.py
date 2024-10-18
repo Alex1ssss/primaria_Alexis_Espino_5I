@@ -14,7 +14,13 @@ class Alumno(models.Model):
         verbose_name="Alumno"
         verbose_name_plural="Alumnosjaja"
 
+    def __str__(self) -> str:
+        return self.nombre
 
 class Frase(models.Model):
-    Comentario=models.TextField(verbose_name="comentario")
+    comentario=models.TextField(verbose_name="comentario",max_length=400)
     Alumno_fk=models.ForeignKey(Alumno, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Frase'
+        verbose_name_plural = 'frases'
